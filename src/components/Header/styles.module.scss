@@ -1,0 +1,63 @@
+.headerContainer{
+    height: 5rem;
+    border-bottom: 1px solid var(--gray-800);
+}
+
+.headerContent{
+    max-width: 1120px;
+    //aqui está fazendo ele ocupar todo o lugar, poderia ser 100% tambem
+    height: 5rem;
+    //alinhar ao centro horizontalmente
+    margin: 0 auto;
+    //caso o usuario reduza a tela a menos de 1120px fica um espaço nas laterais do menu
+    padding: 0 2rem;
+
+    display: flex;
+    align-items: center;
+
+    nav{
+        margin-left: 5rem;
+        //o nav vai ocupar toda a altura
+        height: 5rem;
+
+        a{
+            display: inline-block;
+            position: relative;
+            padding: 0 0.5rem;
+            //ambos com 5rem para que fiquem sempre alinhados com o centro
+            height: 5rem;
+            line-height: 5rem;
+            color: var(--gray-300);
+
+            transition: color 0.2s;
+
+            & + a{
+                margin-left: 2rem;
+            }
+
+            &:hover{
+                color: var(--white);
+            }
+
+            &.active{
+                color: var(--white);
+                font-weight: bold;
+            }
+
+            &.active::after{
+                content: '';
+                height: 3px;
+                border-radius: 3px 3px 0 0;
+                width: 100%;
+                position: absolute;
+                bottom: 1px;
+                left: 0;
+                background: var(--yellow-500);
+            }
+        }
+    }
+
+    button{
+        margin-left: auto;
+    }
+}
